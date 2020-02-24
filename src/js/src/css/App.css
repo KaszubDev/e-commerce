@@ -1,0 +1,14 @@
+.row {
+    margin: 0 !important;
+}
+.topBar {
+    padding: 0 15px;
+}
+@media only screen and (min-width: 768px) {
+    .row {
+        margin: 0 -15px;
+    }
+    .topBar {
+        padding: 0 80px;
+    }
+  }

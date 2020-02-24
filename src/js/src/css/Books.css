@@ -1,0 +1,17 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
+}
+.books__title {
+    font-size: 3.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+  }

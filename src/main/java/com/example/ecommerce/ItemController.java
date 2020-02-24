@@ -4,15 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
-@RequestMapping("/item")
+@RequestMapping(path = "/item")
 public class ItemController {
 
     @Autowired
     private ItemRepository itemRepository;
 
     @PostMapping(path = "/add")
-    public @ResponseBody String addNewItem(@RequestParam String title, @RequestParam String author, @RequestParam Float price, @RequestParam String picture) {
+    public @ResponseBody String addNewItem(@RequestParam String title, @RequestParam String author, @RequestParam Float price, String picture) {
 
         Item item = new Item();
         item.setAuthor(author);
@@ -29,4 +31,10 @@ public class ItemController {
         return itemRepository.findAll();
     }
 
+
+    @GetMapping(path = "/ID={id}")
+    public @ResponseBody
+    Optional findById(@PathVariable Integer id){
+        return itemRepository.findById(id);
+    }
 }

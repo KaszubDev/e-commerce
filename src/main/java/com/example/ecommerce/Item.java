@@ -1,9 +1,8 @@
 package com.example.ecommerce;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 public class Item {
@@ -17,16 +16,10 @@ public class Item {
     private Float price;
     private String picture;
 
-    public Item(Integer id, String title, String author, Float price, String picture) {
-        Id = id;
-        this.title = title;
-        this.author = author;
-        this.price = price;
-        this.picture = picture;
-    }
+    @ManyToMany
+    private Collection<Purchase> purchases = new ArrayList<>();
 
     public Item(){
-
     }
 
     public Integer getId() {

@@ -12,11 +12,12 @@ class Books extends Component {
     }
 
     componentDidMount() {
-        fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=Soup')
+        //window.location.href/item/all - give the present URL
+        fetch('http://localhost:8080/item/all')
         .then(results => {
             return results.json();
         }).then(data => {
-            let books = data.meals.map((book => {
+            let books = data.map((book => {
                 return book;
             }));
             this.setState({
@@ -32,8 +33,8 @@ class Books extends Component {
                     <h1 className={'text-center text-light books__title'}>Our collection</h1>
                     <div className="wrapper">
                         {this.state.books.map(book =>
-                            <div className="wrapper__item">
-                                <Image fluid src={book.strMealThumb}/>
+                            <div key={book.id} className="wrapper__item">
+                                <Image fluid src={book.picture}/>
                             </div>
                         )}
                     </div>

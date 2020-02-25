@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin
 @Controller
 @RequestMapping(path = "/item")
 public class ItemController {

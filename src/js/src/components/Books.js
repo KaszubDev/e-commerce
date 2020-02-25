@@ -35,6 +35,10 @@ class Books extends Component {
                         {this.state.books.map(book =>
                             <div key={book.id} className="wrapper__item">
                                 <Image fluid src={book.picture}/>
+                                <div className="books__information text-light text-center">
+                                    <h3>{book.title}</h3>
+                                    <h4>{book.price}</h4>
+                                </div>
                             </div>
                         )}
                     </div>

@@ -12,7 +12,7 @@ class Header extends React.Component {
             <div>
                 <div className='Header'>
                 <div className='Header_image'>
-                    <div center className='Header_caption'>
+                    <div  className='Header_caption'>
                         <h1 className='text-light text-capitalize'>find your reading</h1>
                     </div>
                 </div>

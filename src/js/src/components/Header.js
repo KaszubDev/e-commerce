@@ -12,8 +12,13 @@ class Header extends React.Component {
             <div>
                 <div className='Header'>
                 <div className='Header_image'>
+<<<<<<< HEAD
                     <div  className='Header_caption'>
                         <h1 className='text-light text-capitalize'>find your reading</h1>
+=======
+                    <div center className='Header_caption'>
+                        <h1 className='text-light text-capitalize'>find  your  reading</h1>
+>>>>>>> refs/remotes/origin/master
                     </div>
                 </div>
                 <div className="stats d-flex">

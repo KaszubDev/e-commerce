@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-// item 
+// item
 @Entity
 public class Item {
 

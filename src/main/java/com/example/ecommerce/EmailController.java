@@ -12,19 +12,17 @@ public class EmailController {
     private final TemplateEngine templateEngine;
 
     @Autowired
-    public EmailController(EmailSender emailSender,
-                           TemplateEngine templateEngine) {
+    public EmailController(EmailSender emailSender, TemplateEngine templateEngine) {
         this.emailSender = emailSender;
         this.templateEngine = templateEngine;
     }
 
     @RequestMapping("/sendEmail")
     public String send() {
-//        Context context = new Context();
         Context context = new Context();
-        context.setVariable("header", "Nowy artykuł na CodeCouple");
-        context.setVariable("title", "#8 Spring Boot – email - szablon i wysyłanie");
-        context.setVariable("description", "Tutaj jakis opis...");
+        context.setVariable("header", "Nowa transakcja na stronie z książkami");
+        context.setVariable("title", "Dziękiujemy za zakupy na naszej stronie");
+        context.setVariable("description", "Odnotowaliśmy nową transację w naszym sklepie.");
         String body = templateEngine.process("template", context);
         emailSender.sendEmail("sklepPP5@gmail.com", "CodeCouple Newsletter", body);
         return "index";

@@ -19,12 +19,14 @@ public class EmailController {
 
     @RequestMapping("/sendEmail")
     public String send() {
+
         Context context = new Context();
         context.setVariable("header", "Nowa transakcja na stronie z książkami");
-        context.setVariable("title", "Dziękiujemy za zakupy na naszej stronie");
+        context.setVariable("title", "Dziękujemy za zakupy na naszej stronie");
         context.setVariable("description", "Odnotowaliśmy nową transację w naszym sklepie.");
         String body = templateEngine.process("template", context);
-        emailSender.sendEmail("sklepPP5@gmail.com", "CodeCouple Newsletter", body);
+        emailSender.sendEmail("sklepPP5@gmail.com", "Nowa transakcja w naszym sklepie", body);
         return "index";
+
     }
 }

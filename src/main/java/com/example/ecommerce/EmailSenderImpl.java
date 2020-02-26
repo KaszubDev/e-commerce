@@ -23,6 +23,8 @@ public class EmailSenderImpl implements EmailSender{
             helper.setTo(to);
             helper.setReplyTo("sklepPP5@mail.com");
             helper.setFrom("sklepPP5@gmail.com");
+            Item item = new Item();
+            item.getAuthor();
             helper.setSubject("Nowa transakcja w naszym sklepie ");
             helper.setText(content, true);
         } catch (MessagingException e) {

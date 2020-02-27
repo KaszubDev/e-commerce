@@ -19,7 +19,7 @@
     /*font-size: 36pt;*/
 }
 .stats {
-    background-color: #ffcc99;
+    background-color: rgb(255, 191, 128);
     min-height: 400px;
     z-index: 0;
 }

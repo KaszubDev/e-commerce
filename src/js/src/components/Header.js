@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/Header.css';
 import CountUp from 'react-countup';
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,13 +11,8 @@ class Header extends React.Component {
             <div>
                 <div className='Header'>
                 <div className='Header_image'>
-<<<<<<< HEAD
                     <div  className='Header_caption'>
                         <h1 className='text-light text-capitalize'>find your reading</h1>
-=======
-                    <div center className='Header_caption'>
-                        <h1 className='text-light text-capitalize'>find  your  reading</h1>
->>>>>>> refs/remotes/origin/master
                     </div>
                 </div>
                 <div className="stats d-flex">

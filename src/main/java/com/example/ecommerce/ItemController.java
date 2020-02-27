@@ -1,6 +1,7 @@
 package com.example.ecommerce;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,16 @@ public class ItemController {
 
         itemRepository.save(item);
         return "Saved";
+    }
+
+    @GetMapping(path = "/del/ID={id}")
+    public @ResponseBody String deleteById (@PathVariable Integer id){
+        try{
+            itemRepository.deleteById(id);
+        }catch (EmptyResultDataAccessException e){
+            return "Wrong ID";
+        }
+        return "Success";
     }
 
     @GetMapping(path = "/all")

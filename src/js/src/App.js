@@ -12,17 +12,20 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Footer from './components/Footer';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
+import { list } from 'cart-localstorage';
 
 function App() {
 
   const [show, setShow] = useState(false);
   const showCart = () => setShow(true);
   const onHide = (bool) => setShow(bool);
+  const [cartProducts, setCartProducts] = useState(list());
+  const updateCartProducts = () => setCartProducts(list());
 
   return (
     <div>
       <ReactNotification />
-      <Cart show={show} hide={onHide}/>
+      <Cart show={show} hide={onHide} products={cartProducts} update={updateCartProducts}/>
       <div style={{minHeight: '100vh'}}>
       <div className="topBar">
         <Row style={{alignItems: 'center'}} className="justify-content-between">
@@ -39,7 +42,7 @@ function App() {
       <Header/>
       </div>
 
-      <Books/>
+      <Books addProductToCart={updateCartProducts}/>
 
       <Footer/>
 

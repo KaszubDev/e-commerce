@@ -34,11 +34,10 @@ class Books extends Component {
 
     render() {
         let notification = {
-            title: "Wonderful!",
-            message: "Configurable",
+            title: "Notification",
+            message: "Product was added to the cart",
             type: "success",
             insert: "top",
-            container: "top-right",
             animationIn: ["animated", "fadeIn"],
             animationOut: ["animated", "fadeOut"],
             dismiss: {
@@ -61,8 +60,9 @@ class Books extends Component {
                                 <Button variant="light" onClick={ () => { add({id: book.id, price: book.price, name: book.title});
                                     store.addNotification({
                                         ...notification,
-                                        container: 'top-right'
+                                        container: 'bottom-left'
                                       });
+                                    this.props.addProductToCart();
                                 }}>
                                     <FontAwesomeIcon icon={faCartPlus} size="lg"></FontAwesomeIcon>
                                 </Button>

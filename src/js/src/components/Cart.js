@@ -6,9 +6,6 @@ import Button from 'react-bootstrap/Button';
 
 const Cart = (props) => {
 
-    const [selectedBooks, setSelectedBooks] = useState(list());
-    console.log(selectedBooks);
-
     return (
         <div>
         <Modal centered show={props.show} onHide={() => props.hide(false)}>
@@ -16,35 +13,37 @@ const Cart = (props) => {
         <Modal.Title>Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Table hover bordered>
+          <Table hover bordered responsive>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Book title</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Remove</th>
+                <th className="text-center align-middle">#</th>
+                <th className="text-center align-middle">Book title</th>
+                <th className="text-center align-middle">Price</th>
+                <th className="text-center align-middle">Quantity</th>
+                <th className="text-center align-middle">Remove</th>
               </tr>
             </thead>
             <tbody>
-            {selectedBooks.map((book, index) =>
+            {props.products.map((book, index) =>
               <tr key={book.id}>
                 <td>
                   {index + 1}
                 </td>
-                <td>
+                <td className="text-center align-middle">
                   {book.name}
                 </td>
-                <td>
-                  {book.price} PLN
-                </td>
                 <td className="text-center">
-                  <Button className="mr-2" variant="danger" size="sm" onClick={() => { quantity(book.id, -1); setSelectedBooks(list()) }}>-</Button>
+                    {book.price} PLN
+                </td>
+                <td className="text-center align-middle">
+                  <div className="d-inline-flex">
+                  <Button className="mr-2" variant="danger" size="sm" onClick={() => { quantity(book.id, -1); props.update() }}>-</Button>
                   {book.quantity}
-                  <Button className="ml-2" variant="success" size="sm" onClick={() => { quantity(book.id, 1); setSelectedBooks(list()) }}>+</Button>
+                  <Button className="ml-2" variant="success" size="sm" onClick={() => { quantity(book.id, 1); props.update() }}>+</Button>
+                  </div>
                 </td>
-                <td className="text-center">
-                  <Button variant="danger" size="sm" onClick={() => { remove(book.id); setSelectedBooks(list()) }}>X</Button>
+                <td className="text-center align-middle">
+                  <Button variant="danger" size="sm" onClick={() => { remove(book.id); props.update() }}>X</Button>
                 </td>
               </tr>
             )}
